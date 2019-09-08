@@ -328,3 +328,8 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+/SS/Intermediate
+/SS/SS.sln
+/SS/Binaries/Win64
+/SS/Saved
+/SS/DerivedDataCache
