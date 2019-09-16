@@ -3,3 +3,9 @@
 #pragma once
 
 #include "CoreMinimal.h"
+
+
+
+
+
+SS_API DECLARE_LOG_CATEGORY_EXTERN(LogSS, Log, All);

@@ -5,3 +5,7 @@
 
 IMPLEMENT_PRIMARY_GAME_MODULE( FDefaultGameModuleImpl, SS, "SS" );
  
+
+
+
+DEFINE_LOG_CATEGORY(LogSS);
