@@ -8,7 +8,7 @@
 #include "SSTargetType.generated.h"
 
 
-class ASSCharacter;
+class ASSPlayerCharacter;
 
 
 /**
@@ -26,7 +26,7 @@ public:
 
 	/** Called to determine targets to apply gameplay effects to */
 	UFUNCTION(BlueprintNativeEvent)
-	void GetTargets(ASSCharacter* TargetingCharacter, AActor* TargetingActor, FGameplayEventData EventData, TArray<FHitResult>& OutHitResults, TArray<AActor*>& OutActors) const;
+	void GetTargets(ASSPlayerCharacter* TargetingCharacter, AActor* TargetingActor, FGameplayEventData EventData, TArray<FHitResult>& OutHitResults, TArray<AActor*>& OutActors) const;
 
 };
 
@@ -42,7 +42,7 @@ public:
 	USSTargetType_UseOwner() {}
 
 	/** Uses the passed in event data */
-	virtual void GetTargets_Implementation(ASSCharacter* TargetingCharacter, AActor* TargetingActor, FGameplayEventData EventData, TArray<FHitResult>& OutHitResults, TArray<AActor*>& OutActors) const override;
+	virtual void GetTargets_Implementation(ASSPlayerCharacter* TargetingCharacter, AActor* TargetingActor, FGameplayEventData EventData, TArray<FHitResult>& OutHitResults, TArray<AActor*>& OutActors) const override;
 };
 
 /** Trivial target type that pulls the target out of the event data */
@@ -56,5 +56,5 @@ public:
 	USSTargetType_UseEventData() {}
 
 	/** Uses the passed in event data */
-	virtual void GetTargets_Implementation(ASSCharacter* TargetingCharacter, AActor* TargetingActor, FGameplayEventData EventData, TArray<FHitResult>& OutHitResults, TArray<AActor*>& OutActors) const override;
+	virtual void GetTargets_Implementation(ASSPlayerCharacter* TargetingCharacter, AActor* TargetingActor, FGameplayEventData EventData, TArray<FHitResult>& OutHitResults, TArray<AActor*>& OutActors) const override;
 };

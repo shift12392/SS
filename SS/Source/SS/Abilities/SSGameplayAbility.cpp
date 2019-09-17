@@ -2,7 +2,7 @@
 
 
 #include "SSGameplayAbility.h"
-#include "SSCharacter.h"
+#include "SSPlayerCharacter.h"
 #include "SSAbilitySystemComponent.h"
 #include "SSTargetType.h"
 
@@ -13,7 +13,7 @@ FSSGameplayEffectContainerSpec USSGameplayAbility::MakeEffectContainerSpecFromCo
 	// First figure out our actor info
 	FSSGameplayEffectContainerSpec ReturnSpec;
 	AActor* OwningActor = GetOwningActorFromActorInfo();
-	ASSCharacter* OwningCharacter = Cast<ASSCharacter>(OwningActor);
+	ASSPlayerCharacter* OwningCharacter = Cast<ASSPlayerCharacter>(OwningActor);
 	USSAbilitySystemComponent* OwningASC = USSAbilitySystemComponent::GetAbilitySystemComponentFromActor(OwningActor);
 
 	if (OwningASC)

@@ -2,21 +2,21 @@
 
 
 #include "SSTargetType.h"
-#include "SSCharacter.h"
+#include "SSPlayerCharacter.h"
 
 
 
-void USSTargetType::GetTargets_Implementation(ASSCharacter* TargetingCharacter, AActor* TargetingActor, FGameplayEventData EventData, TArray<FHitResult>& OutHitResults, TArray<AActor*>& OutActors) const
+void USSTargetType::GetTargets_Implementation(ASSPlayerCharacter* TargetingCharacter, AActor* TargetingActor, FGameplayEventData EventData, TArray<FHitResult>& OutHitResults, TArray<AActor*>& OutActors) const
 {
 	return;
 }
 
-void USSTargetType_UseOwner::GetTargets_Implementation(ASSCharacter* TargetingCharacter, AActor* TargetingActor, FGameplayEventData EventData, TArray<FHitResult>& OutHitResults, TArray<AActor*>& OutActors) const
+void USSTargetType_UseOwner::GetTargets_Implementation(ASSPlayerCharacter* TargetingCharacter, AActor* TargetingActor, FGameplayEventData EventData, TArray<FHitResult>& OutHitResults, TArray<AActor*>& OutActors) const
 {
 	OutActors.Add(TargetingCharacter);
 }
 
-void USSTargetType_UseEventData::GetTargets_Implementation(ASSCharacter* TargetingCharacter, AActor* TargetingActor, FGameplayEventData EventData, TArray<FHitResult>& OutHitResults, TArray<AActor*>& OutActors) const
+void USSTargetType_UseEventData::GetTargets_Implementation(ASSPlayerCharacter* TargetingCharacter, AActor* TargetingActor, FGameplayEventData EventData, TArray<FHitResult>& OutHitResults, TArray<AActor*>& OutActors) const
 {
 	const FHitResult* FoundHitResult = EventData.ContextHandle.GetHitResult();
 	if (FoundHitResult)
