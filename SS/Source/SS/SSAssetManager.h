@@ -13,5 +13,13 @@ UCLASS()
 class SS_API USSAssetManager : public UAssetManager
 {
 	GENERATED_BODY()
+
+public:
+
+	/** Static types for items */
+	static const FPrimaryAssetType	PotionItemType;
+	static const FPrimaryAssetType	SkillItemType;
+	static const FPrimaryAssetType	TokenItemType;
+	static const FPrimaryAssetType	WeaponItemType;
 	
 };
