@@ -1,6 +1,6 @@
 {
 	"FileVersion": 3,
-	"EngineAssociation": "{D10F1E8A-4918-6180-B3A2-5A95D6E385DE}",
+	"EngineAssociation": "4.23",
 	"Category": "",
 	"Description": "",
 	"Modules": [
@@ -18,10 +18,6 @@
 	"Plugins": [
 		{
 			"Name": "GameplayAbilities",
-			"Enabled": true
-		},
-		{
-			"Name": "HoudiniEngine",
 			"Enabled": true
 		}
 	]
