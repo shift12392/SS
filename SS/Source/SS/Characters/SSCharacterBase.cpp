@@ -1,12 +1,20 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "SSCharacterBase.h"
+#include "Net/UnrealNetwork.h"
 
 // Sets default values
 ASSCharacterBase::ASSCharacterBase()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+
+
+	AbilitySystemComponent = CreateDefaultSubobject<USSAbilitySystemComponent>("AbilitySystemComponent");
+	AbilitySystemComponent->SetIsReplicated(false);
+
+	CharacterLevel = 1;
+	bAbilitiesInitialized = false;
 
 }
 
@@ -24,10 +32,31 @@ void ASSCharacterBase::Tick(float DeltaTime)
 
 }
 
-// Called to bind functionality to input
-void ASSCharacterBase::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
+void ASSCharacterBase::PossessedBy(AController * NewController)
 {
-	Super::SetupPlayerInputComponent(PlayerInputComponent);
+	Super::PossessedBy(NewController);
 
+	if (AbilitySystemComponent)
+	{
+		AbilitySystemComponent->InitAbilityActorInfo(this, this);
+	}
+
+}
+
+void ASSCharacterBase::UnPossessed()
+{
+	Super::UnPossessed();
+}
+
+void ASSCharacterBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+
+	DOREPLIFETIME(ASSCharacterBase, CharacterLevel)
+}
+
+UAbilitySystemComponent * ASSCharacterBase::GetAbilitySystemComponent() const
+{
+	return AbilitySystemComponent;
 }
 
